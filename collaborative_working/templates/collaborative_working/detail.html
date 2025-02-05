@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Task Detail{% endblock %}
+
+{% block content %}
+<h1>{{ task.title }}</h1>
+<p><strong>Description:</strong> {{ task.description }}</p>
+<p><strong>Assigned To:</strong> {{ task.assigned_to }}</p>
+<p><strong>Due Date:</strong> {{ task.due_date }}</p>
+<p><strong>Status:</strong> {% if task.completed %}Completed{% else %}Pending{% endif %}</p>
+<a href="{% url 'collaborative_working:task_list' %}">Back to Task List</a>
+{% endblock %}

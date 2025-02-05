@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Task Form{% endblock %}
+
+{% block content %}
+<h1>{% if form.instance.pk %}Edit Task{% else %}Create New Task{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if form.instance.pk %}Update{% else %}Create{% endif %}</button>
+</form>
+<a href="{% url 'collaborative_working:task_list' %}">Cancel</a>
+{% endblock %}
